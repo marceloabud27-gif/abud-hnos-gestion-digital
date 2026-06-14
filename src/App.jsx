@@ -218,17 +218,17 @@ const savings = [
   {
     icon: Clock3,
     title: 'Ahorro de tiempo diario',
-    text: 'La IA responde consultas repetidas, toma datos, confirma citas y envía recordatorios sin intervención manual constante.',
+    text: 'Responde consultas, toma datos, confirma citas y envía recordatorios sin intervención constante.',
   },
   {
     icon: MessageCircle,
     title: 'Menos carga para recepción',
-    text: 'El equipo deja de pasar horas contestando horarios, precios, disponibilidad, pagos pendientes o cambios de turno.',
+    text: 'Menos horas respondiendo horarios, precios, disponibilidad, pagos o cambios de turno.',
   },
   {
     icon: BarChart3,
     title: 'Más control con menos esfuerzo',
-    text: 'Citas, clientes, pagos, documentos y estados quedan organizados en un panel para revisar rápido lo importante.',
+    text: 'Citas, clientes, pagos y documentos quedan ordenados en un panel simple.',
   },
 ]
 
@@ -236,22 +236,22 @@ const features = [
   {
     icon: MessageCircle,
     title: 'WhatsApp como entrada principal',
-    text: 'Tus clientes escriben como siempre. La IA entiende el pedido, pregunta lo necesario y guía la reserva.',
+    text: 'El cliente escribe como siempre y la IA guía la reserva.',
   },
   {
     icon: CalendarCheck,
     title: 'Calendario sincronizado',
-    text: 'Cada cita confirmada puede quedar reflejada en Google Calendar y en tu panel de control.',
+    text: 'Cada cita confirmada queda en Google Calendar y en el panel.',
   },
   {
     icon: BarChart3,
     title: 'Panel para gestionar',
-    text: 'Vista diaria, clientes, cancelaciones, estados de turnos y seguimiento comercial.',
+    text: 'Vista diaria de turnos, clientes, pagos y seguimientos.',
   },
   {
     icon: ShieldCheck,
     title: 'Implementación cuidada',
-    text: 'Mensajes claros, reglas de agenda, horarios, servicios y límites definidos antes de activar.',
+    text: 'Reglas, horarios, servicios y mensajes definidos antes de activar.',
   },
 ]
 
@@ -259,17 +259,17 @@ const documentServices = [
   {
     icon: FolderUp,
     title: 'Subida manual de documentos',
-    text: 'El profesional puede cargar archivos, notas, historiales, contratos, estudios o información importante desde su web app.',
+    text: 'El profesional carga archivos, notas, historiales, contratos o estudios.',
   },
   {
     icon: SearchCheck,
     title: 'Preguntas sobre lo cargado',
-    text: 'La IA responde usando los documentos del cliente, para encontrar datos, resumir casos o preparar respuestas más rápido.',
+    text: 'La IA busca datos, resume casos y ayuda a preparar respuestas.',
   },
   {
     icon: FileText,
     title: 'Trabajo organizado por caso',
-    text: 'Ideal para abogados, médicos, consultores y profesionales que manejan muchos clientes, pacientes o expedientes.',
+    text: 'Orden por cliente, paciente, expediente o caso profesional.',
   },
 ]
 
@@ -277,17 +277,17 @@ const paymentServices = [
   {
     icon: CreditCard,
     title: 'Estados de pago simples',
-    text: 'El dueño o secretario marca cada cuota como pagada, pendiente o vencida desde el panel.',
+    text: 'El encargado marca cuotas pagadas, pendientes o vencidas.',
   },
   {
     icon: Send,
     title: 'Avisos automáticos por WhatsApp',
-    text: 'El sistema envía recordatorios solo a clientes con pago pendiente y evita molestar a quienes ya abonaron.',
+    text: 'Se avisa solo a quienes siguen pendientes, sin molestar a los que ya pagaron.',
   },
   {
     icon: FileText,
     title: 'QR y datos bancarios',
-    text: 'El mensaje puede incluir QR de pago, cuenta bancaria, monto, vencimiento e instrucciones claras.',
+    text: 'El mensaje puede incluir QR, cuenta bancaria, monto y vencimiento.',
   },
 ]
 
@@ -388,7 +388,7 @@ function App() {
               <span className="block text-xs text-muted">Agenda, pagos y documentos con IA</span>
             </span>
           </a>
-          <div className="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
+          <div className="hidden items-center gap-6 text-sm font-medium text-muted lg:flex">
             <a className="hover:text-ink" href="#rubros" onClick={(event) => goToSection(event, 'rubros')}>
               Rubros
             </a>
@@ -417,7 +417,7 @@ function App() {
             WhatsApp
           </a>
         </nav>
-        <div className="border-t border-line/70 px-4 pb-3 md:hidden">
+        <div className="border-t border-line/70 px-4 pb-3 lg:hidden">
           <div className="flex gap-2 overflow-x-auto pt-3 text-sm font-semibold text-muted">
             {[
               ['Rubros', 'rubros'],
@@ -457,10 +457,9 @@ function App() {
               Agenda citas automáticamente por WhatsApp con IA
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
-              Ayudo a negocios y profesionales a recibir reservas, confirmar turnos,
-              enviar recordatorios y ordenar su agenda sin pasar el día respondiendo
-              mensajes. El objetivo es ahorrar tiempo, reducir trabajo administrativo
-              y evitar que tu equipo se ocupe de tareas repetitivas todo el día.
+              Automatizamos reservas, recordatorios, pagos pendientes y consultas
+              por WhatsApp para que tu equipo ahorre tiempo, atienda mejor y deje
+              de repetir las mismas tareas todos los días.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -526,7 +525,7 @@ function App() {
             <SectionIntro
               eyebrow="Ahorro operativo"
               title="Menos tiempo en tareas repetitivas, más foco en atender y vender"
-              text="Estos procesos ayudan a reducir horas de recepción, seguimiento manual y mensajes repetidos. El personal humano queda para los casos importantes, no para responder lo mismo todo el día."
+              text="La IA se ocupa de consultas repetidas, confirmaciones, recordatorios y avisos. Tu equipo queda para atender mejor, vender y resolver casos importantes."
             />
             <a
               href={whatsappUrl}
@@ -559,7 +558,7 @@ function App() {
           <SectionIntro
             eyebrow="Rubros"
             title="Una agenda inteligente para negocios que viven de reservas"
-            text="La misma base se adapta a distintos servicios: cambia el lenguaje, los horarios, la duración de cada cita y las preguntas necesarias antes de confirmar."
+            text="El sistema se adapta al lenguaje, horarios, duración de citas y preguntas de cada negocio."
           />
           <p className="mt-5 max-w-2xl text-sm font-semibold text-muted">
             Tocá un rubro para abrir una vista con su ejemplo, beneficios y flujo de uso.
@@ -590,7 +589,7 @@ function App() {
             <SectionIntro
               eyebrow="Beneficios"
               title="Tu negocio responde mejor con menos trabajo manual"
-              text="El objetivo no es reemplazar el trato humano. Es automatizar lo repetitivo para ahorrar tiempo, bajar la carga operativa y permitir que el equipo se enfoque en atender, vender y resolver casos importantes."
+              text="Automatizamos lo repetitivo para ahorrar tiempo, bajar carga operativa y mejorar la atención sin perder el trato humano."
             />
             <a
               href={whatsappUrl}
@@ -620,7 +619,7 @@ function App() {
           <SectionIntro
             eyebrow="Cómo funciona"
             title="Del mensaje del cliente al turno confirmado"
-            text="La página web consigue el contacto. Tu flujo automatizado hace el resto: responde, ordena datos, agenda, recuerda pagos y avisa cuando hace falta intervención humana."
+            text="El cliente escribe. La IA responde, toma datos, agenda, recuerda pagos y avisa cuando debe intervenir una persona."
           />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {steps.map((step, index) => (
@@ -650,14 +649,13 @@ function App() {
             <SectionIntro
               eyebrow="Pagos pendientes"
               title="Recordatorios automáticos para cuotas y pagos atrasados"
-              text="Para gimnasios, academias, centros estéticos o cualquier negocio con pagos mensuales, el sistema puede avisar automáticamente a quienes todavía figuran como pendientes."
+              text="Ideal para negocios con pagos mensuales: el sistema avisa automáticamente a quienes siguen pendientes."
             />
             <div className="mt-6 rounded-lg border border-line bg-white p-5">
               <p className="text-sm font-bold uppercase text-muted">Ejemplo de uso</p>
               <p className="mt-3 text-base leading-7 text-ink">
-                El encargado marca en el panel quién pagó y quién sigue pendiente.
-                Al llegar la fecha configurada, la IA envía WhatsApp solo a los
-                pendientes con QR, cuenta bancaria o instrucciones de pago.
+                El encargado marca quién pagó. En la fecha configurada, la IA
+                escribe solo a los pendientes con QR, cuenta o instrucciones de pago.
               </p>
             </div>
           </div>
@@ -683,7 +681,7 @@ function App() {
             <SectionIntro
               eyebrow="IA con documentos"
               title="Un asistente que trabaja con la información del profesional"
-              text="Además de agendar citas, también puedo crear una web app donde el cliente sube sus propios documentos y la IA los usa para responder preguntas, resumir información o ayudar con tareas del día a día."
+              text="Una web app privada donde el profesional sube documentos y la IA ayuda a buscar, resumir y trabajar con esa información."
             />
           </div>
           <div className="grid gap-4">
@@ -707,7 +705,7 @@ function App() {
           <SectionIntro
             eyebrow="Opciones"
             title="Elegí entre agenda automática, panel completo o IA con documentos"
-            text="Podés ofrecer solo agendamiento, un sistema completo con panel y calendario, o una web app para que profesionales trabajen con sus propios documentos usando IA."
+            text="Podés empezar con agenda automática, sumar panel y pagos, o crear una web app documental con IA."
           />
           <div className="mt-6 rounded-lg border border-line bg-white p-5">
             <p className="text-sm font-bold uppercase text-brand">Cotización personalizada</p>
@@ -887,108 +885,151 @@ function SectorDetailView({ detail, onBack, sector }) {
 function HeroPreview() {
   return (
     <div className="relative mx-auto w-full max-w-xl lg:max-w-2xl">
-      <div className="absolute -right-2 top-5 z-20 hidden rounded-lg bg-sun px-3 py-2 text-xs font-bold text-white shadow-soft sm:block">
-        Sistema listo para vender
+      <div className="absolute -right-2 top-7 z-20 hidden rounded-lg bg-white px-3 py-2 text-xs font-bold text-ink shadow-soft sm:block">
+        Vista tipo panel real
       </div>
-      <div className="absolute -left-3 bottom-16 z-20 hidden rounded-lg border border-line bg-white p-3 shadow-soft sm:block">
+      <div className="absolute -left-3 bottom-20 z-20 hidden rounded-lg border border-line bg-white p-3 shadow-soft sm:block">
         <div className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-mint text-brand">
             <CreditCard size={18} />
           </span>
           <div>
-            <p className="text-xs font-bold uppercase text-muted">Pagos</p>
+            <p className="text-xs font-bold uppercase text-muted">Cobros</p>
             <p className="text-sm font-bold">12 avisos enviados</p>
           </div>
         </div>
       </div>
-      <div className="overflow-hidden rounded-lg border border-line bg-white p-3 shadow-soft sm:p-4">
-        <div className="mb-4 flex items-center justify-between rounded-lg bg-slate-950 px-4 py-3">
+
+      <div className="overflow-hidden rounded-lg border border-line bg-slate-950 shadow-soft">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400"></span>
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
           </div>
-          <p className="text-xs font-semibold text-slate-400">Panel IA Abud Hnos. Gestión Digital</p>
+          <p className="text-xs font-semibold text-slate-400">Abud Hnos. Gestión Digital</p>
         </div>
-        <div className="grid gap-4 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="rounded-lg border border-line bg-[#f2fbf7] p-4">
-            <div className="flex items-center justify-between border-b border-emerald-100 pb-3">
-              <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand text-white">
-                  <MessageCircle size={18} />
-                </span>
-                <div>
-                  <p className="text-sm font-bold">WhatsApp IA</p>
-                  <p className="text-xs text-muted">respondiendo ahora</p>
-                </div>
-              </div>
-              <span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-bold text-brand">
-                activo
-              </span>
-            </div>
-            <div className="mt-4 space-y-3">
-              <Bubble side="left">Hola, quiero reservar para mañana.</Bubble>
-              <Bubble side="right">Perfecto. Tengo 10:00, 15:30 o 18:00. ¿Cuál preferís?</Bubble>
-              <Bubble side="left">15:30 está bien.</Bubble>
-              <Bubble side="right">Listo. Tu cita quedó confirmada y recibirás recordatorio.</Bubble>
-            </div>
-          </div>
 
-          <div className="hidden rounded-lg border border-line bg-slate-50 p-4 sm:block">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-bold">Panel de agenda</p>
-                <p className="text-xs text-muted">Google Calendar sincronizado</p>
-              </div>
-              <CalendarCheck className="text-ocean" size={24} />
-            </div>
-            <div className="mt-4 grid grid-cols-7 gap-1 text-center text-[11px] font-semibold text-muted">
-              {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((day) => (
-                <span key={day}>{day}</span>
-              ))}
-              {Array.from({ length: 14 }, (_, index) => (
+        <div className="grid bg-white sm:grid-cols-[76px_1fr]">
+          <aside className="hidden border-r border-line bg-slate-950 p-3 sm:block">
+            <div className="grid gap-3">
+              {[MessageCircle, CalendarCheck, CreditCard, FileText].map((Icon, index) => (
                 <span
                   key={index}
-                  className={`rounded-md py-2 ${
-                    [2, 5, 9].includes(index)
-                      ? 'bg-ocean text-white'
-                      : [7, 12].includes(index)
-                        ? 'bg-emerald-100 text-brand'
-                        : 'bg-white text-slate-500'
+                  className={`grid h-11 w-11 place-items-center rounded-lg ${
+                    index === 1 ? 'bg-brand text-white' : 'bg-white/8 text-slate-300'
                   }`}
                 >
-                  {index + 8}
+                  <Icon size={19} />
                 </span>
               ))}
             </div>
-            <div className="mt-4 space-y-2">
-              <Appointment time="10:00" name="Consulta inicial" status="Confirmado" />
-              <Appointment time="15:30" name="Pago pendiente enviado" status="QR" />
-              <Appointment time="18:00" name="Recordatorio enviado" status="IA" />
+          </aside>
+
+          <div className="bg-paper p-3 sm:p-4">
+            <div className="mb-4 flex flex-col gap-3 rounded-lg border border-line bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase text-brand">Panel del cliente</p>
+                <p className="mt-1 text-lg font-bold">Agenda, pagos y documentos</p>
+              </div>
+              <span className="inline-flex w-fit items-center gap-2 rounded-lg bg-mint px-3 py-2 text-xs font-bold text-brand">
+                <span className="h-2 w-2 rounded-full bg-brand"></span>
+                IA activa
+              </span>
             </div>
-          </div>
-        </div>
-        <div className="mt-4 hidden gap-3 sm:grid sm:grid-cols-3">
-          <div className="rounded-lg border border-line bg-white p-3">
-            <CalendarCheck className="text-ocean" size={20} />
-            <p className="mt-2 text-sm font-bold">Google Calendar</p>
-            <p className="text-xs leading-5 text-muted">sincronizado</p>
-          </div>
-          <div className="rounded-lg border border-line bg-white p-3">
-            <CreditCard className="text-brand" size={20} />
-            <p className="mt-2 text-sm font-bold">Cuotas pendientes</p>
-            <p className="text-xs leading-5 text-muted">avisos con QR</p>
-          </div>
-          <div className="rounded-lg border border-line bg-white p-3">
-            <FileText className="text-sun" size={20} />
-            <p className="mt-2 text-sm font-bold">Documentos</p>
-            <p className="text-xs leading-5 text-muted">consultas con IA</p>
+
+            <div className="grid gap-3 lg:grid-cols-[0.94fr_1.06fr]">
+              <div className="rounded-lg border border-line bg-white p-4">
+                <div className="flex items-center justify-between border-b border-line pb-3">
+                  <div>
+                    <p className="text-sm font-bold">WhatsApp IA</p>
+                    <p className="text-xs text-muted">conversación automática</p>
+                  </div>
+                  <MessageCircle className="text-brand" size={22} />
+                </div>
+                <div className="mt-4 space-y-3">
+                  <Bubble side="left">Quiero reservar para mañana.</Bubble>
+                  <Bubble side="right">Tengo 10:00, 15:30 o 18:00. ¿Cuál preferís?</Bubble>
+                  <Bubble side="left">15:30 está bien.</Bubble>
+                  <Bubble side="right">Listo. Turno confirmado y recordatorio programado.</Bubble>
+                </div>
+              </div>
+
+              <div className="hidden gap-3 sm:grid">
+                <div className="rounded-lg border border-line bg-white p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-bold">Agenda de hoy</p>
+                      <p className="text-xs text-muted">Google Calendar sincronizado</p>
+                    </div>
+                    <CalendarCheck className="text-ocean" size={22} />
+                  </div>
+                  <div className="mt-4 space-y-2">
+                    <Appointment time="10:00" name="Consulta inicial" status="Confirmado" />
+                    <Appointment time="15:30" name="Reserva nueva" status="IA" />
+                    <Appointment time="18:00" name="Recordatorio enviado" status="WhatsApp" />
+                  </div>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <MiniPanelCard
+                    icon={CreditCard}
+                    label="Pagos"
+                    title="Cuotas pendientes"
+                    text="QR y cuenta enviados"
+                    tone="brand"
+                  />
+                  <MiniPanelCard
+                    icon={FileText}
+                    label="Documentos"
+                    title="Historiales cargados"
+                    text="Listos para consultar"
+                    tone="sun"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:hidden">
+              <HeroStat label="Citas" value="34" />
+              <HeroStat label="Avisos" value="12" />
+            </div>
+
+            <div className="mt-3 hidden grid-cols-3 gap-3 md:grid">
+              <HeroStat label="Citas confirmadas" value="34" />
+              <HeroStat label="Mensajes ahorrados" value="+180" />
+              <HeroStat label="Pagos avisados" value="12" />
+            </div>
           </div>
         </div>
       </div>
       <div className="mx-auto -mt-5 w-[86%] rounded-b-[24px] border-x border-b border-line bg-slate-200/80 p-2">
         <div className="mx-auto h-1.5 w-24 rounded-full bg-slate-400/60"></div>
       </div>
+    </div>
+  )
+}
+
+function MiniPanelCard({ icon: Icon, label, title, text, tone }) {
+  const toneClass = tone === 'sun' ? 'bg-amber-50 text-sun' : 'bg-mint text-brand'
+
+  return (
+    <div className="rounded-lg border border-line bg-white p-3">
+      <span className={`grid h-9 w-9 place-items-center rounded-lg ${toneClass}`}>
+        <Icon size={18} />
+      </span>
+      <p className="mt-3 text-[11px] font-bold uppercase text-muted">{label}</p>
+      <p className="mt-1 text-sm font-bold">{title}</p>
+      <p className="text-xs leading-5 text-muted">{text}</p>
+    </div>
+  )
+}
+
+function HeroStat({ label, value }) {
+  return (
+    <div className="rounded-lg border border-line bg-white px-4 py-3">
+      <p className="text-xl font-bold text-ink">{value}</p>
+      <p className="text-xs font-semibold text-muted">{label}</p>
     </div>
   )
 }
