@@ -770,7 +770,7 @@ function App() {
           <div>
             <p className="text-sm font-semibold uppercase text-teal-200">Abud Hnos. Gestión Digital</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl">
-              Dejá que la IA atienda lo repetitivo mientras vos te enfocás en vender y atender mejor.
+              Respondé más rápido, perdé menos clientes y vendé más con ayuda de IA.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-slate-300">
               Escribime al {phoneDisplay} y coordinamos una reunión breve para
