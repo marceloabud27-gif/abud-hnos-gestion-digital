@@ -352,26 +352,26 @@ const inventoryPlans = [
   {
     icon: FileText,
     name: 'Básico',
-    subtitle: 'Para negocios chicos que quieren empezar rápido.',
-    storage: 'Google Sheets',
+    subtitle: 'Para negocios chicos que quieren controlar su stock con una planilla simple.',
+    storage: 'Planilla simple',
     items: [
-      'Inventario en una planilla clara y editable',
-      'Descuento automático cuando entra una venta',
-      'Suma de stock cuando cargás reposición',
-      'Alerta por email cuando un producto llega al mínimo',
+      'Inventario ordenado en una planilla editable',
+      'Cada venta descuenta stock automáticamente',
+      'Cada reposición suma mercadería al inventario',
+      'Aviso por email cuando queda poco stock',
       'Reporte diario por email con ventas del día y stock restante',
     ],
   },
   {
     icon: BarChart3,
     name: 'Pro',
-    subtitle: 'Para empresas con más productos, variantes o movimiento.',
-    storage: 'PostgreSQL / Neon',
+    subtitle: 'Para empresas con más productos, talles, colores o mayor movimiento.',
+    storage: 'Inventario profesional',
     items: [
-      'Base de datos profesional para productos, SKU y variantes',
+      'Control más seguro para muchos productos y variantes',
       'Historial de ventas, reposiciones y ajustes',
       'Control por talle, color, categoría o sucursal',
-      'Alertas de bajo stock para reponer a tiempo',
+      'Avisos de bajo stock para reponer a tiempo',
       'Reporte diario por email con ventas, stock restante y productos críticos',
     ],
     highlighted: true,
@@ -379,13 +379,13 @@ const inventoryPlans = [
   {
     icon: ShieldCheck,
     name: 'Premium',
-    subtitle: 'Para empresas que necesitan panel propio y control completo.',
-    storage: 'Web app personalizada',
+    subtitle: 'Para empresas que quieren entrar a una plataforma propia y ver todo desde un panel.',
+    storage: 'Panel propio',
     items: [
       'Panel web con usuario y contraseña',
       'Carga manual de stock, ventas y reposiciones',
       'Reportes visuales e historial completo',
-      'Alertas por email o WhatsApp integradas con n8n',
+      'Alertas por email o WhatsApp cuando falta stock',
       'Reporte diario automático con resumen de ventas y stock restante',
     ],
   },
@@ -466,7 +466,7 @@ function App() {
           </a>
         </nav>
         <div className="px-4 pb-2 lg:hidden">
-          <div className="flex gap-1.5 overflow-x-auto text-xs font-semibold text-muted">
+          <div className="grid grid-cols-3 gap-1.5 text-xs font-semibold text-muted sm:grid-cols-5">
             {[
               ['Rubros', 'rubros'],
               ['Pagos', 'pagos'],
@@ -478,7 +478,7 @@ function App() {
                 key={sectionId}
                 href={`#${sectionId}`}
                 onClick={(event) => goToSection(event, sectionId)}
-                className="inline-flex min-h-9 shrink-0 items-center rounded-lg border border-line bg-white px-2.5 py-1.5 hover:border-brand hover:text-ink"
+                className="inline-flex min-h-9 items-center justify-center rounded-lg border border-line bg-white px-2 py-1.5 text-center hover:border-brand hover:text-ink"
               >
                 {label}
               </a>
@@ -545,7 +545,14 @@ function App() {
 
       <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase text-brand">Servicios principales</p>
+          <p className="text-sm font-bold uppercase text-brand">Qué podés automatizar</p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight">
+            Elegí el área donde más tiempo está perdiendo tu negocio
+          </h2>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-muted">
+            Usá esta sección como guía rápida para ir directo al servicio que querés vender,
+            ordenar o automatizar.
+          </p>
           <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <ServiceShortcut
               icon={CalendarCheck}
@@ -779,31 +786,34 @@ function App() {
             <div>
               <SectionIntro
                 eyebrow="Inventario automático"
-                title="Stock actualizado solo: ventas, reposiciones, alertas y reportes diarios"
-                text="Conectamos tus ventas con Google Sheets o una base de datos en Neon para restar, sumar o actualizar inventario sin cargar todo a mano."
+                title="Tu stock se actualiza solo después de cada venta"
+                text="Cargá ventas desde el celular, actualizá tu stock automáticamente y recibí un reporte diario sin tocar planillas complicadas."
               />
               <div className="mt-6 rounded-lg border border-line bg-white p-5 shadow-sm">
                 <p className="text-sm font-bold uppercase text-brand">Ejemplo simple</p>
                 <p className="mt-3 text-base leading-7 text-ink">
-                  Si se venden 10 remeras negras, el sistema busca el SKU,
-                  descuenta esas unidades, revisa si el stock quedó bajo y
-                  avisa por email si hace falta reponer.
+                  Vendiste 10 remeras negras. El sistema baja esas 10 unidades
+                  del inventario y, si queda poco stock, te avisa por correo.
                 </p>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 rounded-lg border border-teal-100 bg-mint px-4 py-3 text-center text-sm font-bold text-brand sm:text-base">
+                Venta <span className="px-2 text-ocean">→</span> Stock baja{' '}
+                <span className="px-2 text-ocean">→</span> Alerta{' '}
+                <span className="px-2 text-ocean">→</span> Reporte
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-4">
                 {[
-                  ['Venta detectada', 'Webhook, tienda online o carga manual.'],
-                  ['Stock actualizado', 'Se resta, suma o ajusta según el movimiento.'],
-                  ['Reporte diario', 'Correo con ventas del día y stock restante.'],
+                  ['Venta', 'Vendés por tienda, planilla o carga manual.'],
+                  ['Stock baja', 'El sistema descuenta las unidades vendidas.'],
+                  ['Alerta', 'Si queda poco stock, te avisa por email.'],
+                  ['Reporte', 'Al final del día recibís el resumen completo.'],
                 ].map(([title, text], index) => (
-                  <div key={title} className="flex gap-4 rounded-lg border border-line bg-white p-4">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-sm font-bold text-white">
+                  <div key={title} className="rounded-lg border border-line bg-white p-4 text-center shadow-sm">
+                    <span className="mx-auto grid h-9 w-9 place-items-center rounded-lg bg-ink text-sm font-bold text-white">
                       {index + 1}
                     </span>
-                    <div>
-                      <p className="font-semibold">{title}</p>
-                      <p className="mt-1 text-sm leading-6 text-muted">{text}</p>
-                    </div>
+                    <p className="mt-3 font-semibold">{title}</p>
+                    <p className="mt-1 text-sm leading-6 text-muted">{text}</p>
                   </div>
                 ))}
               </div>
