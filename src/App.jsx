@@ -459,9 +459,8 @@ function App() {
               Agenda citas automáticamente por WhatsApp con IA
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
-              Automatizamos reservas, recordatorios, pagos pendientes y consultas
-              por WhatsApp para que tu equipo ahorre tiempo, atienda mejor y deje
-              de repetir las mismas tareas todos los días.
+              Convertí WhatsApp en una agenda automática que responde consultas,
+              confirma turnos y recuerda pagos mientras tu equipo atiende mejor.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -470,7 +469,7 @@ function App() {
                 rel="noreferrer"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 font-semibold text-white shadow-soft transition hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200"
               >
-                Quiero automatizar mi agenda
+                Quiero automatizar mi WhatsApp
                 <ArrowRight size={19} />
               </a>
               <a
@@ -531,7 +530,7 @@ function App() {
           <div>
             <SectionIntro
               eyebrow="Ahorro operativo"
-              title="Menos tiempo en tareas repetitivas, más foco en atender y vender"
+              title="Dejá de perder horas respondiendo los mismos mensajes todos los días"
               text="La IA se ocupa de consultas repetidas, confirmaciones, recordatorios y avisos. Tu equipo queda para atender mejor, vender y resolver casos importantes."
             />
             <a
@@ -668,7 +667,7 @@ function App() {
           <div>
             <SectionIntro
               eyebrow="Pagos pendientes"
-              title="Recordatorios automáticos para cuotas y pagos atrasados"
+              title="Cobrá más ordenado sin perseguir clientes uno por uno"
               text="Ideal para negocios con pagos mensuales: el sistema avisa automáticamente a quienes siguen pendientes."
             />
             <div className="mt-6 rounded-lg border border-line bg-white p-5">
@@ -724,7 +723,7 @@ function App() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Opciones"
-            title="Elegí entre agenda automática, panel completo o IA con documentos"
+            title="Elegí el nivel de automatización que necesita tu negocio"
             text="Podés empezar con agenda automática, sumar panel y pagos, o crear una web app documental con IA."
           />
           <div className="mt-6 rounded-lg border border-line bg-white p-5">
@@ -771,7 +770,7 @@ function App() {
           <div>
             <p className="text-sm font-semibold uppercase text-teal-200">Abud Hnos. Gestión Digital</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl">
-              Mientras vos atendés tu negocio, la IA puede ahorrar horas de trabajo por vos.
+              Dejá que la IA atienda lo repetitivo mientras vos te enfocás en vender y atender mejor.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-slate-300">
               Escribime al {phoneDisplay} y coordinamos una reunión breve para
