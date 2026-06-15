@@ -486,8 +486,8 @@ function App() {
             </div>
             <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
               <Metric value="24/7" label="Atención automática" />
-              <Metric value="2-6 h" label="Ahorro semanal estimado" />
-              <Metric value="Menos chats" label="Repetidos al equipo" />
+              <Metric value="Más eficiencia" label="Menos trabajo manual" />
+              <Metric value="Ahorro" label="De personal operativo" />
             </div>
           </div>
 
