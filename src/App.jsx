@@ -348,6 +348,49 @@ const plans = [
   },
 ]
 
+const inventoryPlans = [
+  {
+    icon: FileText,
+    name: 'Básico',
+    subtitle: 'Para negocios chicos que quieren empezar rápido.',
+    storage: 'Google Sheets',
+    items: [
+      'Inventario en una planilla clara y editable',
+      'Descuento automático cuando entra una venta',
+      'Suma de stock cuando cargás reposición',
+      'Alerta por email cuando un producto llega al mínimo',
+      'Reporte diario por email con ventas del día y stock restante',
+    ],
+  },
+  {
+    icon: BarChart3,
+    name: 'Pro',
+    subtitle: 'Para empresas con más productos, variantes o movimiento.',
+    storage: 'PostgreSQL / Neon',
+    items: [
+      'Base de datos profesional para productos, SKU y variantes',
+      'Historial de ventas, reposiciones y ajustes',
+      'Control por talle, color, categoría o sucursal',
+      'Alertas de bajo stock para reponer a tiempo',
+      'Reporte diario por email con ventas, stock restante y productos críticos',
+    ],
+    highlighted: true,
+  },
+  {
+    icon: ShieldCheck,
+    name: 'Premium',
+    subtitle: 'Para empresas que necesitan panel propio y control completo.',
+    storage: 'Web app personalizada',
+    items: [
+      'Panel web con usuario y contraseña',
+      'Carga manual de stock, ventas y reposiciones',
+      'Reportes visuales e historial completo',
+      'Alertas por email o WhatsApp integradas con n8n',
+      'Reporte diario automático con resumen de ventas y stock restante',
+    ],
+  },
+]
+
 function App() {
   const [selectedSectorIndex, setSelectedSectorIndex] = useState(null)
   const [showAllSectors, setShowAllSectors] = useState(false)
@@ -403,6 +446,9 @@ function App() {
             <a className="hover:text-ink" href="#documentos" onClick={(event) => goToSection(event, 'documentos')}>
               IA documentos
             </a>
+            <a className="hover:text-ink" href="#inventario" onClick={(event) => goToSection(event, 'inventario')}>
+              Inventario
+            </a>
             <a className="hover:text-ink" href="#planes" onClick={(event) => goToSection(event, 'planes')}>
               Planes
             </a>
@@ -425,6 +471,7 @@ function App() {
               ['Rubros', 'rubros'],
               ['Pagos', 'pagos'],
               ['Documentos', 'documentos'],
+              ['Inventario', 'inventario'],
               ['Planes', 'planes'],
             ].map(([label, sectionId]) => (
               <a
@@ -499,7 +546,7 @@ function App() {
       <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase text-brand">Servicios principales</p>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <ServiceShortcut
               icon={CalendarCheck}
               onNavigate={goToSection}
@@ -520,6 +567,13 @@ function App() {
               sectionId="documentos"
               title="IA con documentos"
               text="Web app para subir archivos y consultar, resumir o trabajar con esa información."
+            />
+            <ServiceShortcut
+              icon={BarChart3}
+              onNavigate={goToSection}
+              sectionId="inventario"
+              title="Inventario automático"
+              text="Stock actualizado por ventas, reposiciones, alertas y reportes diarios por email."
             />
           </div>
         </div>
@@ -715,6 +769,78 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="inventario" className="scroll-mt-24 border-y border-line bg-paper">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-10">
+            <div>
+              <SectionIntro
+                eyebrow="Inventario automático"
+                title="Stock actualizado solo: ventas, reposiciones, alertas y reportes diarios"
+                text="Conectamos tus ventas con Google Sheets o una base de datos en Neon para restar, sumar o actualizar inventario sin cargar todo a mano."
+              />
+              <div className="mt-6 rounded-lg border border-line bg-white p-5 shadow-sm">
+                <p className="text-sm font-bold uppercase text-brand">Ejemplo simple</p>
+                <p className="mt-3 text-base leading-7 text-ink">
+                  Si se venden 10 remeras negras, el sistema busca el SKU,
+                  descuenta esas unidades, revisa si el stock quedó bajo y
+                  avisa por email si hace falta reponer.
+                </p>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[
+                  ['Venta detectada', 'Webhook, tienda online o carga manual.'],
+                  ['Stock actualizado', 'Se resta, suma o ajusta según el movimiento.'],
+                  ['Reporte diario', 'Correo con ventas del día y stock restante.'],
+                ].map(([title, text], index) => (
+                  <div key={title} className="flex gap-4 rounded-lg border border-line bg-white p-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-sm font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <p className="font-semibold">{title}</p>
+                      <p className="mt-1 text-sm leading-6 text-muted">{text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {inventoryPlans.map((plan) => (
+                <article
+                  key={plan.name}
+                  className={`rounded-lg border p-6 ${
+                    plan.highlighted
+                      ? 'border-brand bg-white shadow-soft'
+                      : 'border-line bg-white shadow-sm'
+                  }`}
+                >
+                  {plan.highlighted && (
+                    <span className="mb-4 inline-flex rounded-lg bg-mint px-3 py-1 text-xs font-bold uppercase text-brand">
+                      Más recomendado
+                    </span>
+                  )}
+                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-mint text-brand">
+                    <plan.icon size={23} />
+                  </span>
+                  <h3 className="mt-5 text-2xl font-bold">Plan {plan.name}</h3>
+                  <p className="mt-2 text-sm font-bold uppercase text-ocean">{plan.storage}</p>
+                  <p className="mt-3 min-h-16 text-sm leading-6 text-muted">{plan.subtitle}</p>
+                  <ul className="mt-6 space-y-3">
+                    {plan.items.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm font-medium leading-6">
+                        <Check className="mt-0.5 shrink-0 text-brand" size={17} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
