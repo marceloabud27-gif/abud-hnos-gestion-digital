@@ -350,6 +350,8 @@ const plans = [
 
 function App() {
   const [selectedSectorIndex, setSelectedSectorIndex] = useState(null)
+  const [showAllSectors, setShowAllSectors] = useState(false)
+  const visibleSectors = showAllSectors ? sectors : sectors.slice(0, 6)
 
   const openSector = (index) => {
     setSelectedSectorIndex(index)
@@ -372,20 +374,20 @@ function App() {
 
   return (
     <main className="min-h-screen bg-white text-ink">
-      <header className="sticky top-0 z-40 border-b border-line/80 bg-white/92 backdrop-blur">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <header className="z-40 border-b border-line/80 bg-white/94 backdrop-blur lg:sticky lg:top-0">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 lg:px-8 lg:py-3">
           <a
             href="#inicio"
             onClick={(event) => goToSection(event, 'inicio')}
-            className="flex items-center gap-3"
+            className="flex min-w-0 items-center gap-2.5 sm:gap-3"
             aria-label="Inicio"
           >
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-ink text-white">
-              <Sparkles size={21} />
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-white sm:h-10 sm:w-10">
+              <Sparkles size={20} />
             </span>
-            <span className="leading-tight">
-              <span className="block text-sm font-semibold">Abud Hnos. Gestión Digital</span>
-              <span className="block text-xs text-muted">Agenda, pagos y documentos con IA</span>
+            <span className="min-w-0 leading-tight">
+              <span className="block truncate text-sm font-semibold">Abud Hnos. Gestión Digital</span>
+              <span className="hidden text-xs text-muted sm:block">Agenda, pagos y documentos con IA</span>
             </span>
           </a>
           <div className="hidden items-center gap-6 text-sm font-medium text-muted lg:flex">
@@ -411,14 +413,14 @@ function App() {
             rel="noreferrer"
             aria-label="Escribir directo por WhatsApp"
             title="Escribir directo por WhatsApp"
-            className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100"
+            className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:min-h-11 sm:px-4"
           >
             <MessageCircle size={18} />
             WhatsApp
           </a>
         </nav>
-        <div className="border-t border-line/70 px-4 pb-3 lg:hidden">
-          <div className="flex gap-2 overflow-x-auto pt-3 text-sm font-semibold text-muted">
+        <div className="px-4 pb-2 lg:hidden">
+          <div className="flex gap-1.5 overflow-x-auto text-xs font-semibold text-muted">
             {[
               ['Rubros', 'rubros'],
               ['Pagos', 'pagos'],
@@ -429,7 +431,7 @@ function App() {
                 key={sectionId}
                 href={`#${sectionId}`}
                 onClick={(event) => goToSection(event, sectionId)}
-                className="inline-flex min-h-11 shrink-0 items-center rounded-lg border border-line bg-white px-3 py-2 hover:border-brand hover:text-ink"
+                className="inline-flex min-h-9 shrink-0 items-center rounded-lg border border-line bg-white px-2.5 py-1.5 hover:border-brand hover:text-ink"
               >
                 {label}
               </a>
@@ -446,8 +448,8 @@ function App() {
         />
       ) : (
         <>
-      <section id="inicio" className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-20">
+      <section id="inicio" className="scroll-mt-24 border-b border-line bg-paper">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-8 lg:py-20">
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-line bg-white px-3 py-2 text-sm font-semibold text-brand">
               <Workflow size={17} />
@@ -479,14 +481,19 @@ function App() {
                 <ChevronRight size={19} />
               </a>
             </div>
+            <div className="mt-7 lg:hidden">
+              <HeroPreview />
+            </div>
             <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
               <Metric value="24/7" label="Atención automática" />
-              <Metric value="- horas" label="Menos trabajo manual" />
-              <Metric value="- costos" label="Menos carga operativa" />
+              <Metric value="2-6 h" label="Ahorro semanal estimado" />
+              <Metric value="Menos chats" label="Repetidos al equipo" />
             </div>
           </div>
 
-          <HeroPreview />
+          <div className="hidden lg:block">
+            <HeroPreview />
+          </div>
         </div>
       </section>
 
@@ -553,7 +560,7 @@ function App() {
         </div>
       </section>
 
-      <section id="rubros" className="bg-white">
+      <section id="rubros" className="scroll-mt-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Rubros"
@@ -563,8 +570,8 @@ function App() {
           <p className="mt-5 max-w-2xl text-sm font-semibold text-muted">
             Tocá un rubro para abrir una vista con su ejemplo, beneficios y flujo de uso.
           </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {sectors.map((sector, index) => (
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleSectors.map((sector, index) => (
               <button
                 key={sector.title}
                 type="button"
@@ -579,6 +586,19 @@ function App() {
                 </span>
               </button>
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllSectors((current) => !current)}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand focus:outline-none focus:ring-4 focus:ring-teal-100"
+            >
+              {showAllSectors ? 'Ver menos rubros' : 'Ver todos los rubros'}
+              <ChevronRight
+                className={`transition ${showAllSectors ? '-rotate-90' : 'rotate-90'}`}
+                size={18}
+              />
+            </button>
           </div>
         </div>
       </section>
@@ -614,7 +634,7 @@ function App() {
         </div>
       </section>
 
-      <section id="funciona" className="bg-white">
+      <section id="funciona" className="scroll-mt-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Cómo funciona"
@@ -643,7 +663,7 @@ function App() {
         </div>
       </section>
 
-      <section id="pagos" className="border-y border-line bg-paper">
+      <section id="pagos" className="scroll-mt-24 border-y border-line bg-paper">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <SectionIntro
@@ -675,7 +695,7 @@ function App() {
         </div>
       </section>
 
-      <section id="documentos" className="border-y border-line bg-white">
+      <section id="documentos" className="scroll-mt-24 border-y border-line bg-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <SectionIntro
@@ -700,7 +720,7 @@ function App() {
         </div>
       </section>
 
-      <section id="planes" className="border-y border-line bg-paper">
+      <section id="planes" className="scroll-mt-24 border-y border-line bg-paper">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <SectionIntro
             eyebrow="Opciones"
